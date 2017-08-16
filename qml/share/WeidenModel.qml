@@ -5,7 +5,8 @@ ListModel {
 
     property var data: []
     property bool ready: false
-    property var directions: [ "N"
+    property var directions: [
+        "N"
         ,"NNO"
         ,"NO"
         ,"ONO"

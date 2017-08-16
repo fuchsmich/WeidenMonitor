@@ -9,13 +9,6 @@ Page {
     SilicaFlickable {
         anchors.fill: parent
 
-        PullDownMenu {
-            MenuItem {
-                text: qsTr("Settings")
-                onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
-            }
-        }
-
         contentHeight: column.height
 
         Column {
@@ -28,16 +21,17 @@ Page {
             }
 
             TextSwitch {
-                id: localDataSwitch
-                text: qsTr("Load data from loacl file.")
-                checked: settings.localData
-                onClicked: settings.localData = checked;
-            }
-            TextSwitch {
                 id: autoUpdateSwitch
                 text: qsTr("Autoupdate")
                 checked: settings.autoUpdate
                 onClicked: settings.autoUpdate = checked;
+            }
+
+            TextSwitch {
+                id: localDataSwitch
+                text: qsTr("Load data from local file (just for developement).")
+                checked: settings.localData
+                onClicked: settings.localData = checked;
             }
         }
     }
