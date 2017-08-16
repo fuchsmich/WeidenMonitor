@@ -7,22 +7,22 @@ Canvas {
     property real maxSpeed: weidenModel.maxSpeed
     property real knScale: (roseSize/2)/maxSpeed
 
-    property var directions: [ "N"
-        ,"NNO"
-        ,"NO"
-        ,"ONO"
-        ,"O"
-        ,"OSO"
-        ,"SO"
-        ,"SSO"
-        ,"S"
-        ,"SSW"
-        ,"SW"
-        ,"WSW"
-        ,"W"
-        ,"WNW"
-        ,"NW"
-        ,"NNW"
+    property var directions: [ qsTr("N")
+        ,qsTr("NNE")
+        ,qsTr("NE")
+        ,qsTr("ENE")
+        ,qsTr("E")
+        ,qsTr("ESE")
+        ,qsTr("SE")
+        ,qsTr("SSE")
+        ,qsTr("S")
+        ,qsTr("SSW")
+        ,qsTr("SW")
+        ,qsTr("WSW")
+        ,qsTr("W")
+        ,qsTr("WNW")
+        ,qsTr("NW")
+        ,qsTr("NNW")
     ]
 
     property var colors: {
@@ -81,7 +81,6 @@ Canvas {
 //                        else ctx.textAlign = "right";
             var c = pol2cart(Math.PI/8*i - Math.PI/2, 1.5*roseSize/2);
             ctx.fillText(directions[i],c.x, c.y);
-//                        console.log(directions[i],c.x, c.y);
         }
 
         ctx.restore();
@@ -95,8 +94,8 @@ Canvas {
         ctx.beginPath();
         ctx.strokeStyle = "red";
         for (var i=0; i < directions.length; i++) {
-            var s  = (weidenModel.windRose[directions[i]] !== undefined ?
-                          weidenModel.windRose[directions[i]].average : 0);
+            var s  = (weidenModel.windRose[weidenModel.directions[i]] !== undefined ?
+                          weidenModel.windRose[weidenModel.directions[i]].average : 0);
             var c = pol2cart(Math.PI/8*i - Math.PI/2, s*knScale);
             if (i == 0) ctx.moveTo(c.x, c.y);
             else ctx.lineTo(c.x, c.y);
@@ -108,7 +107,7 @@ Canvas {
     }
 
     function dir2rad(dir) {
-        return Math.PI/8*directions.indexOf(dir) - Math.PI/2;
+        return Math.PI/8*weidenModel.directions.indexOf(dir) - Math.PI/2;
     }
 
     function drawCake(ctx, dir, kn, mag) {

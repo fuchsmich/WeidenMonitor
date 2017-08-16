@@ -1,6 +1,6 @@
 Name: harbour-weidenMonitor
 Summary: Monitor Wind in Weiden
-Version: 0.1
+Version: 0.2
 Release: 1
 # The contents of the Group field should be one of the groups listed here:
 # http://gitorious.org/meego-developer-tools/spectacle/blobs/master/data/GROUPS
@@ -12,7 +12,7 @@ License: LICENSE
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |
-  Short description of my Sailfish OS Application
+  This app monitors last 24h of wind in Weiden am See - Austria. Other Spots and Services may be added.
 Configure: none
 # The qtc5 builder inserts macros to allow QtCreator to have fine
 # control over qmake/make execution
@@ -33,7 +33,6 @@ PkgConfigBR:
 # Runtime dependencies which are not automatically detected
 Requires:
   - sailfishsilica-qt5 >= 0.10.9 
-#  - qt5-qtdeclarative-import-settings
 
 # All installed files
 Files:
